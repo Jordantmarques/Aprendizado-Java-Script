@@ -54,8 +54,8 @@ console.log('Vamos ficar em casa?', ficarEmCasa); // NOT
 //------------//-------------//-------------------//-----------//----------
 
 // Declaração de variáveis
-let verdadeira1 = 1 + 4 > '3' && 3 + 2 != 4;
-let verdadeira2 = 1 + 2 <= 10 || 3 > 1 + 2;
+let verdadeira1 = 1 + 2 == 3 || 1 + 2 === '3';
+let verdadeira2 = 1 + 4 > '3' && 3 + 2 != 4;
 
 let falso1 =  1 + 2 !== 2 + 1;
 let falso2 = !(2 / 2 == 1);
