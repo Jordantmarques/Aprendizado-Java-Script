@@ -11,7 +11,7 @@ console.log(a < b);
 console.log(a != b);
 console.log(a !== b);
 console.log(a <= b);
-console.log(a + a === b);
+console.log(a + a === b); // Comparação estrita -> Verifica se além de iguais os valores são do mesmo tipo
 
 console.log("\n");
 
