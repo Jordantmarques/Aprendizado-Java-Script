@@ -60,6 +60,6 @@ valores.forEach(function(el) {
 
 console.log('\n');
 
-valores.forEach(function(_, i) {
+valores.forEach(function(_, i) { // Convensão -> Não uso do parâmetro 'elemento' -> Troca por _
     console.log(i);
 });
