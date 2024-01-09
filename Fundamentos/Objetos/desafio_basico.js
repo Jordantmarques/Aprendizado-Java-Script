@@ -44,7 +44,7 @@ const data = {
     mes: 1,
     ano: 2011,
 
-    dataFormatedShown: function() { // Método(Função)
+    dateFormatedShown: function() { // Método(Função)
         console.log(`${this.dia}/${this.mes}/${this.ano}`)
     }
 };
