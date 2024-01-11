@@ -49,4 +49,4 @@ const data = {
     }
 };
 
-data.dataFormatedShown();
+data.dateFormatedShown();
