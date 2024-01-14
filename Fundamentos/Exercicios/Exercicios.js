@@ -429,11 +429,9 @@ console.log('\n');
 
 function checarAnoBissexto(ano) {
     let saida = false;
-
-    if(ano % 4 == 0) {
-        if(!(ano % 100 == 0) && ano % 400) {
-            saida = true;
-        }
+    
+    if((ano % 4 == 0 && !(ano % 100 == 0)) || ano % 400 == 0) {
+        saida = true;
     }
     
     console.log(saida);
@@ -441,3 +439,98 @@ function checarAnoBissexto(ano) {
 
 checarAnoBissexto(2020);
 checarAnoBissexto(2100);
+
+//------------------Opção--------------------//
+
+// checa-se indiretamente, verificando se o mês de fevereiro do dado ano tem 29 dias
+function checarAnoBissexto(ano) {
+    return new Date(ano, 1, 29).getDate() === 29;
+}
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function somarNumeros(vetor) {
+    let soma = 0;
+    
+    for(let item in vetor) { // item == índice
+        soma += vetor[item];
+    }
+    // for(let i = 0; i < vetor.length; i++) {
+        //     soma += vetor[i];
+        // }
+        
+        console.log(soma);
+    }
+    
+somarNumeros([10, 10, 10]);
+somarNumeros([15, 15, 15, 15]);
+    
+    //----------------------Opção------------------------//
+    
+    function somarNumeros(numeros) {
+        let soma = 0
+        numeros.forEach(numero => soma += numero)
+        console.log(soma);
+    }
+    
+somarNumeros([10, 10, 10]);
+somarNumeros([15, 15, 15, 15]);
+
+//----------------------//------------------------------//----------------------------
+    
+console.log('\n');
+
+function despesasTotais(vetor) {
+    let soma = 0;
+    
+    for(let item of vetor) {
+        for(let i = 0; i < Object.keys(item).length; i++) {
+            if(Object.keys(item)[i] == 'preco') {
+                soma += Object.values(item)[i];
+            }
+        }
+        
+        console.log(Object.keys(item).indexOf('preco'));
+    }
+    
+    console.log(soma);
+}
+
+despesasTotais([
+    {nome: "Jornal online", categoria: "Informação", preco: 89.99},
+    {nome: "Cinema", categoria: "Entretenimento", preco: 150}
+]);
+despesasTotais([
+    {nome: "Galaxy S20", categoria: "Eletrônicos", preco: 3599.99},
+    {nome: "Macbook Pro", categoria: "Eletrônicos", preco: 30999.90}
+]);
+
+//----------------------Opção----------------------//
+
+function despesasTotais(vetor) {
+    let soma = 0;
+    
+    for(let item of vetor) {
+        let index = Object.keys(item).indexOf('preco');
+        
+        soma += Object.values(item)[index];
+    }
+    
+    console.log(soma);
+}
+
+despesasTotais([
+    {nome: "Jornal online", categoria: "Informação", preco: 89.99},
+    {nome: "Cinema", categoria: "Entretenimento", preco: 150}
+]);
+despesasTotais([
+    {nome: "Galaxy S20", categoria: "Eletrônicos", preco: 3599.99},
+    {nome: "Macbook Pro", categoria: "Eletrônicos", preco: 30999.90}
+]);
+
+//----------------------//------------------------------//----------------------------
+    
+console.log('\n');
+
