@@ -338,7 +338,106 @@ function filtrarNumeros(vetor) {
 filtrarNumeros(["Javascript", 1, "3", "Web", 20]);
 filtrarNumeros(["a", "c"]);
 
+//------------------Opção-----------------//
+
+function filtrarNumeros(array) {
+    return array.filter(item => typeof item === "number")
+}
+
 //----------------------//------------------------------//----------------------------
 
 console.log('\n');
 
+function objetoParaArray(objeto) {
+    const saida = [];
+    
+    for(let chave in objeto) {
+        saida.push([chave, objeto[chave]]);
+    }
+    
+    console.log(saida);
+}
+
+objetoParaArray({
+    nome: "Maria",
+    profissao: "Desenvolvedora de software"
+});
+objetoParaArray({
+    codigo: 11111,
+    preco: 12000
+});
+
+//-----------------Opção-------------------//
+
+function objetoParaArray(objeto) {
+    const chaves = Object.keys(objeto);
+    const saida = chaves.map(chave => [chave, objeto[chave]]);
+    
+    console.log(saida);
+}
+
+objetoParaArray({
+    nome: "Maria",
+    profissao: "Desenvolvedora de software"
+});
+objetoParaArray({
+    codigo: 11111,
+    preco: 12000
+});
+
+//-------------------Opção----------------------//
+
+function objetoParaArray(objeto) {
+    return Object.entries(objeto)
+}
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function receberSomenteOsParesDeIndicesPares(vetor) {
+    const saida = [];
+    
+    for(let i = 0; i < vetor.length; i++) {
+        if(vetor[i] % 2 == 0 && i % 2 == 0) {
+            saida.push(vetor[i]);
+        }
+    }
+    
+    console.log(saida);
+}
+
+receberSomenteOsParesDeIndicesPares([1, 2, 3, 4]);
+receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]);
+
+//------------------Opção-----------------------//
+
+function receberSomenteOsParesDeIndicesPares(numeros) {
+    return numeros.filter((numero, indice) => {
+    const numeroPar = numero % 2 === 0
+    const indicePar = indice % 2 === 0
+    return numeroPar && indicePar
+    })
+}
+
+console.log(receberSomenteOsParesDeIndicesPares([1, 2, 3, 4]));
+console.log(receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]));
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function checarAnoBissexto(ano) {
+    let saida = false;
+
+    if(ano % 4 == 0) {
+        if(!(ano % 100 == 0) && ano % 400) {
+            saida = true;
+        }
+    }
+    
+    console.log(saida);
+}
+
+checarAnoBissexto(2020);
+checarAnoBissexto(2100);
