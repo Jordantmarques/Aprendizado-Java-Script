@@ -491,8 +491,6 @@ function despesasTotais(vetor) {
                 soma += Object.values(item)[i];
             }
         }
-        
-        console.log(Object.keys(item).indexOf('preco'));
     }
     
     console.log(soma);
@@ -530,7 +528,53 @@ despesasTotais([
     {nome: "Macbook Pro", categoria: "Eletrônicos", preco: 30999.90}
 ]);
 
+//--------------------Opção----------------------//
+
+function despesasTotais(itens) {
+    var total = 0
+
+    for (let item of itens) {
+        total += item.preco
+    }
+    
+    console.log(total);
+}
+
+despesasTotais([
+    {nome: "Jornal online", categoria: "Informação", preco: 89.99},
+    {nome: "Cinema", categoria: "Entretenimento", preco: 150}
+]);
+despesasTotais([
+    {nome: "Galaxy S20", categoria: "Eletrônicos", preco: 3599.99},
+    {nome: "Macbook Pro", categoria: "Eletrônicos", preco: 30999.90}
+]);
+
+//-------------------Opção-------------------//
+
+function despesasTotais(itens) {
+    console.log(itens.map(item => item.preco).reduce((soma, item) => soma + item)); //opção -> console.log(itens.reduce((soma, item) => soma + item.preco, 0));
+}
+
+despesasTotais([
+    {nome: "Jornal online", categoria: "Informação", preco: 89.99},
+    {nome: "Cinema", categoria: "Entretenimento", preco: 150}
+]);
+despesasTotais([
+    {nome: "Galaxy S20", categoria: "Eletrônicos", preco: 3599.99},
+    {nome: "Macbook Pro", categoria: "Eletrônicos", preco: 30999.90}
+]);
+
 //----------------------//------------------------------//----------------------------
     
 console.log('\n');
 
+function calcularMedia(vetor) {
+    let media = 0;
+
+    media = (vetor.reduce((soma, item) => soma + item)) / vetor.length;
+
+    console.log(media);
+}
+
+calcularMedia([0, 10]);
+calcularMedia([1, 2, 3, 4, 5]);
