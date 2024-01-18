@@ -583,3 +583,421 @@ calcularMedia([1, 2, 3, 4, 5]);
     
 console.log('\n');
 
+function areaDoTriangulo(base, altura) {
+    let area = (base * altura) / 2;
+    
+    console.log(area.toFixed(2));
+}
+
+areaDoTriangulo(10, 15);
+areaDoTriangulo(7, 9);
+areaDoTriangulo(9.25, 13.1);
+
+//----------------------//------------------------------//----------------------------
+    
+console.log('\n');
+
+function menorNumero(vetor) {
+    let menorValor = vetor[0];
+    
+    for(let item in vetor) {
+        if(vetor[item] < menorValor) {
+            menorValor = vetor[item];
+        }
+    }
+    
+    console.log(menorValor);
+}
+
+menorNumero([10, 5, 35, 65]);
+menorNumero([5, -15, 50, 3]);
+
+//-------------------Opção-------------------//
+
+function menorNumero(numeros) {
+    console.log(Math.min(...numeros));
+}
+
+menorNumero([10, 5, 35, 65]);
+menorNumero([5, -15, 50, 3]);
+
+//-------------------Opção-------------------//
+
+function menorNumero(vetor) {
+    console.log(vetor.reduce((item, menor) => item < menor ? item : menor));
+}
+
+menorNumero([10, 5, 35, 65]);
+menorNumero([5, -15, 50, 3]);
+
+//----------------------//------------------------------//----------------------------
+    
+console.log('\n');
+
+function funcaoDaSorte(chute) {
+    let valorSorteado;
+    
+    valorSorteado = (Math.random() * 10).toFixed(0);
+    
+    if(chute == valorSorteado) {
+        console.log(`Parabéns! O número sorteado foi o ${valorSorteado}`);
+    }
+    else {
+        console.log(`Que pena! O número sorteado foi o ${valorSorteado}`);
+    }
+}
+
+funcaoDaSorte(10);
+funcaoDaSorte(5);
+funcaoDaSorte(5);
+
+//-------------------Opção-------------------//
+
+/*mais informações sobre gerar números aleatórios dentro de uma certa faixa
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random */
+function funcaoDaSorte(numeroEscolhido) {
+    const min = 1;
+    const max = 10;
+    const numeroAleatorio = Math.floor(Math.random() * (max - min + 1) + min);
+    console.log((numeroEscolhido === numeroAleatorio ? `Parabéns! O número sorteado foi o ${numeroAleatorio}` : `Que pena, o número sorteado foi o ${numeroAleatorio}`));
+}
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function contarPalavras(frase) {
+    const vetor = frase;
+    
+    let contador = 1;
+    
+    for(let item in vetor) {
+        if(vetor[item] == ' ') {
+            contador ++;
+        }
+    }
+    
+    console.log(contador);
+}
+
+contarPalavras("Sou uma frase");
+contarPalavras("Me divirto aprendendo a programar");
+
+//-------------------Opção-------------------//
+
+function contarPalavras(frase){
+    const palavras = frase.split(" ");
+    console.log(palavras.length);
+}
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+
+function contarCaractere(letra, frase) {
+    const vetor = frase;
+    
+    let contador = 0;
+    
+    for(let item in vetor) {
+        if(vetor[item] == letra) {
+            contador ++;
+        }
+    }
+    
+    console.log(contador);
+}
+
+contarCaractere("r", "A sorte favorece os audazes");
+contarCaractere("c", "Conhece-te a ti mesmo");
+
+//-------------------Opção-------------------//
+
+function contarCaractere(caractereBuscado, frase) {
+    let contador = 0
+    for (let i = 0; i < frase.length; i++)
+    if (frase.charAt(i) === caractereBuscado)
+    contador++
+console.log(contador);
+}
+
+contarCaractere("r", "A sorte favorece os audazes");
+contarCaractere("c", "Conhece-te a ti mesmo");
+
+//-------------------Opção-------------------//
+
+function contarCaractere(caractereBuscado, frase) {
+    console.log([...frase].filter(caractere => caractere === caractereBuscado).length);
+}
+
+contarCaractere("r", "A sorte favorece os audazes");
+contarCaractere("c", "Conhece-te a ti mesmo");
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function buscarPalavrasSemelhantes(palavra, vetor) {
+    let saida = [];
+    
+    for(let item of vetor) {
+        if(item.includes(palavra)) {
+            saida.push(item);
+        }
+    }
+    
+    console.log(saida);
+}
+
+buscarPalavrasSemelhantes("pro", ["programação", "mobile", "profissional"]);
+buscarPalavrasSemelhantes("python", ["javascript", "java", "c++"]);
+
+//-------------------Opção-------------------//
+
+function buscarPalavrasSemelhantes(inicio, palavras) {
+    console.log(palavras.filter(palavra => palavra.includes(inicio)));
+}
+
+buscarPalavrasSemelhantes("pro", ["programação", "mobile", "profissional"]);
+buscarPalavrasSemelhantes("python", ["javascript", "java", "c++"]);
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function removerVogais(palavra) {
+    const vetor = palavra;
+    
+    let saida = [];
+    
+    for(let item in vetor) {
+        if(vetor[item] != 'a' && vetor[item] != 'e' && vetor[item] != 'i'
+        && vetor[item] != 'o' && vetor[item] != 'u' && vetor[item] != 'A' 
+        && vetor[item] != 'E' && vetor[item] != 'I'
+        && vetor[item] != 'O' && vetor[item] != 'U') {
+            saida += vetor[item];
+        }
+    }
+    
+    console.log(saida);
+}
+
+removerVogais("Cod3r");
+removerVogais("Fundamentos");
+
+//-------------------Opção-------------------//
+
+function removerVogais(frase) {
+    const vogais = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"]
+    vogais.forEach( vogal => frase = frase.replace(vogal, '') )
+    console.log(frase)
+}
+
+removerVogais("Cod3r");
+removerVogais("Fundamentos");
+
+//-------------------Opção-------------------//
+
+function removerVogais(frase) {
+    console.log(frase.replace(/[aeiou]/ig, ''));
+}
+
+removerVogais("Cod3r");
+removerVogais("Fundamentos");
+
+//----------------------//------------------------------//----------------------------
+
+// console.log('\n');
+
+// function inverter(objeto) {
+//     let objetoCopia;
+    
+//     console.log(objetoCopia);
+
+//     for(chave in objeto) {
+//         objetoCopia.chave[chave] = chave;
+
+//         // console.log(`${chave} : ${objetoCopia[chave]}`);
+
+//         // let aux = chave;
+//         // chave = objetoCopia[chave];
+//         // objetoCopia[chave] = aux;
+
+//         // console.log(`${chave} : ${objetoCopia[chave]}`);
+//     }
+    
+//     console.log(objetoCopia);
+// }
+
+// inverter({ a: 1, b: 2, c: 3});
+
+//-------------------Opção-------------------//
+
+function inverter(objeto) {
+    const objetoInvertido = {}
+    Object.entries(objeto).forEach( parChaveValor => {
+        const chave = 0,
+        valor = 1
+        objetoInvertido[ parChaveValor[valor] ] = parChaveValor[chave]
+    })
+    console.log(objetoInvertido);
+}
+
+inverter({ a: 1, b: 2, c: 3});
+
+//-------------------Opção-------------------//
+
+function inverter(objeto) {
+    const paresDeChaveValorInvertidos = Object.entries(objeto)
+    .map( parChaveValor => parChaveValor.reverse() )
+    console.log(Object.fromEntries(paresDeChaveValorInvertidos))
+}
+
+inverter({ a: 1, b: 2, c: 3});
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function filtrarPorQuantidadeDeDigitos(vetor, numeroDigitos) {
+    let saida = [];
+    
+    for(let item of vetor) {
+        if((item / (Math.pow(10,numeroDigitos))) <= 1 && (item / (Math.pow(10,numeroDigitos))) >= 0.1 ) {
+            saida.push(item);
+        }
+    }
+    
+    console.log(saida);
+}
+
+filtrarPorQuantidadeDeDigitos([38, 2, 365, 10, 125, 11], 2);
+filtrarPorQuantidadeDeDigitos([5, 9, 1, 125, 11], 1);
+
+//-------------------Opção-------------------//
+
+function filtrarPorQuantidadeDeDigitos(numeros, quantidadeDesejada) {
+    let resultado = []
+    for(numero of numeros){
+        const quantidadeDeDigitos = String(numero).length
+        if(quantidadeDeDigitos === quantidadeDesejada)
+        resultado.push(numero)
+}
+console.log(resultado);
+}
+
+filtrarPorQuantidadeDeDigitos([38, 2, 365, 10, 125, 11], 2);
+filtrarPorQuantidadeDeDigitos([5, 9, 1, 125, 11], 1);
+
+//-------------------Opção-------------------//
+
+function filtrarPorQuantidadeDeDigitos(numeros, quantidadeDesejada) {
+    return numeros.filter(numero => {
+        const quantidadeDeDigitos = String(numero).length
+        console.log(quantidadeDeDigitos === quantidadeDesejada)
+    })
+}
+
+filtrarPorQuantidadeDeDigitos([38, 2, 365, 10, 125, 11], 2);
+filtrarPorQuantidadeDeDigitos([5, 9, 1, 125, 11], 1);
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function segundoMaior(vetor) {
+    let segundoMaior = Math.min(...vetor);
+    
+    let maior = Math.max(...vetor);
+    
+    for(let item of vetor) {
+        if(item != maior && item > segundoMaior) {
+            segundoMaior = item;
+        }
+    }
+    
+    console.log(segundoMaior);
+}
+
+segundoMaior([12, 16, 1, 5]);
+segundoMaior([8, 4, 5, 6]);
+
+//-------------------Opção-------------------//
+
+function segundoMaior(numeros) {
+    const maiorNumero = Math.max(...numeros)
+    numeros = numeros.filter(numero => numero != maiorNumero)
+    const segundoMaior = Math.max(...numeros)
+    console.log(segundoMaior)
+}
+
+segundoMaior([12, 16, 1, 5]);
+segundoMaior([8, 4, 5, 6]);
+
+//-------------------Opção-------------------//
+
+function segundoMaior(numeros) {
+    const numerosOrdenados = numeros.sort((numeroA, numeroB) => numeroB - numeroA)
+    const segundoMaior = numerosOrdenados[1]
+    console.log(segundoMaior)
+}
+
+segundoMaior([12, 16, 1, 5]);
+segundoMaior([8, 4, 5, 6]);
+
+//----------------------//------------------------------//----------------------------
+
+console.log('\n');
+
+function recerberMelhorEstudante(objeto) {
+    const saida = {
+        nome: '',
+        media: 0,
+    };
+    
+    for(let chave in objeto) {
+        let mediaAluno = 0;
+        let somaAluno = 0;
+        
+        for(let item of objeto[chave]) {            
+            somaAluno += item;
+        }
+        
+        mediaAluno = somaAluno / objeto[chave].length;
+        
+        if(mediaAluno > saida.media) {
+            saida.nome = chave;
+            saida.media = mediaAluno;
+        }
+    }
+    
+    console.log(saida);
+}
+
+recerberMelhorEstudante({
+    Joao: [8, 7.6, 8.9, 6], // média 7.625
+    Mariana: [9, 6.6, 7.9, 8], // média 7.875
+    Carla: [7, 7, 8, 9] // média 7.75
+});
+
+//-------------------Opção-------------------//
+
+// const soma = array => array.reduce((acumulador, atual) => acumulador + atual, 0)
+// const media = array => soma(array) / array.length
+// function recerberMelhorEstudante(estudantes) {
+//     const estudantesComMedias = Object.entries(estudantes).map( estudante => {
+//         const chave = 0,
+//         valor = 1
+//         return { nome: estudante[chave], media: media(estudante[valor]) }
+//     })
+//     const estudantesOrdenados = estudantesComMedias.sort( (estudanteA, estudanteB) => estudanteB.media - estudanteA.media )
+//     const melhorEstudante = estudantesOrdenados[0]
+//     console.log(melhorEstudante);
+// }
+
+// recerberMelhorEstudante({
+//     Joao: [8, 7.6, 8.9, 6], // média 7.625
+//     Mariana: [9, 6.6, 7.9, 8], // média 7.875
+//     Carla: [7, 7, 8, 9] // média 7.75
+// });
